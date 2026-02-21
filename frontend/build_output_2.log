@@ -1,0 +1,32 @@
+
+> frontend@0.1.0 build /home/knights/Documents/Project/Drips/Paymesh-stellr/frontend
+> next build
+
+▲ Next.js 16.1.3 (Turbopack)
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 42s
+  Running TypeScript ...
+  Collecting page data using 7 workers ...
+  Generating static pages using 7 workers (0/12) ...
+  Generating static pages using 7 workers (3/12) 
+  Generating static pages using 7 workers (6/12) 
+  Generating static pages using 7 workers (9/12) 
+✓ Generating static pages using 7 workers (12/12) in 1016.9ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ○ /fundraising
+├ ○ /groups
+├ ○ /test-components
+├ ○ /test-shadcn
+├ ○ /user
+├ ○ /user/overview
+├ ○ /user/transactions
+└ ○ /waitlist
+
+
+○  (Static)  prerendered as static content
+

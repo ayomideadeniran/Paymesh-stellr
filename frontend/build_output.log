@@ -1,0 +1,291 @@
+
+> frontend@0.1.0 build /home/knights/Documents/Project/Drips/Paymesh-stellr/frontend
+> next build
+
+▲ Next.js 16.1.3 (Turbopack)
+
+  Creating an optimized production build ...
+
+> Build error occurred
+Error: Turbopack build failed with 10 errors:
+./src/app/(marketing)/landing/components/TestimonialsSection.tsx:3:1
+Module not found: Can't resolve '../../../../public/bricks.svg'
+[0m [90m 1 |[39m [32m"use client"[39m[33m;[39m
+ [90m 2 |[39m
+[31m[1m>[22m[39m[90m 3 |[39m [36mimport[39m bricks [36mfrom[39m [32m"../../../../public/bricks.svg"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 4 |[39m [36mimport[39m { motion } [36mfrom[39m [32m"framer-motion"[39m[33m;[39m
+ [90m 5 |[39m
+ [90m 6 |[39m [36mconst[39m testimonials [33m=[39m [[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/(marketing)/landing/components/TestimonialsSection.tsx [Client Component Browser]
+    ./src/app/(marketing)/page.tsx [Client Component Browser]
+    ./src/app/(marketing)/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/(marketing)/landing/components/TestimonialsSection.tsx [Client Component SSR]
+    ./src/app/(marketing)/page.tsx [Client Component SSR]
+    ./src/app/(marketing)/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./src/app/(marketing)/landing/components/Footer.tsx:5:1
+Module not found: Can't resolve '../../../../public/coin/Container (1).png'
+[0m [90m 3 |[39m [36mimport[39m [33mReact[39m [36mfrom[39m [32m"react"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m [33mLink[39m [36mfrom[39m [32m"next/link"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 5 |[39m [36mimport[39m coins [36mfrom[39m [32m"../../../../public/coin/Container (1).png"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 6 |[39m [36mimport[39m [33mImage[39m [36mfrom[39m [32m"next/image"[39m[33m;[39m
+ [90m 7 |[39m [36mimport[39m logo [36mfrom[39m [32m"../../../../public/navLogo.svg"[39m[33m;[39m
+ [90m 8 |[39m [36mimport[39m [33mTg[39m [36mfrom[39m [32m"@/components/icons/tg"[39m[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/(marketing)/landing/components/Footer.tsx [Client Component Browser]
+    ./src/app/(marketing)/page.tsx [Client Component Browser]
+    ./src/app/(marketing)/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/(marketing)/landing/components/Footer.tsx [Client Component SSR]
+    ./src/app/(marketing)/page.tsx [Client Component SSR]
+    ./src/app/(marketing)/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./src/app/(marketing)/landing/components/FeaturesSection.tsx:4:1
+Module not found: Can't resolve '../../../../public/coin/Image (1).png'
+[0m [90m 2 |[39m
+ [90m 3 |[39m [36mimport[39m usdt [36mfrom[39m [32m"../../../../public/coin/Image.png"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 4 |[39m [36mimport[39m usdc [36mfrom[39m [32m"../../../../public/coin/Image (1).png"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 5 |[39m [36mimport[39m wbtc [36mfrom[39m [32m"../../../../public/coin/Image (3).png"[39m[33m;[39m
+ [90m 6 |[39m [36mimport[39m strk [36mfrom[39m [32m"../../../../public/coin/Image (2).png"[39m[33m;[39m
+ [90m 7 |[39m [36mimport[39m eth [36mfrom[39m [32m"../../../../public/coin/Image (4).png"[39m[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/(marketing)/landing/components/FeaturesSection.tsx [Client Component Browser]
+    ./src/app/(marketing)/page.tsx [Client Component Browser]
+    ./src/app/(marketing)/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/(marketing)/landing/components/FeaturesSection.tsx [Client Component SSR]
+    ./src/app/(marketing)/page.tsx [Client Component SSR]
+    ./src/app/(marketing)/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./src/app/(marketing)/landing/components/FeaturesSection.tsx:6:1
+Module not found: Can't resolve '../../../../public/coin/Image (2).png'
+[0m [90m 4 |[39m [36mimport[39m usdc [36mfrom[39m [32m"../../../../public/coin/Image (1).png"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m wbtc [36mfrom[39m [32m"../../../../public/coin/Image (3).png"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 6 |[39m [36mimport[39m strk [36mfrom[39m [32m"../../../../public/coin/Image (2).png"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 7 |[39m [36mimport[39m eth [36mfrom[39m [32m"../../../../public/coin/Image (4).png"[39m[33m;[39m
+ [90m 8 |[39m [36mimport[39m [33mImage[39m [36mfrom[39m [32m"next/image"[39m[33m;[39m
+ [90m 9 |[39m [36mimport[39m { motion } [36mfrom[39m [32m"framer-motion"[39m[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/(marketing)/landing/components/FeaturesSection.tsx [Client Component Browser]
+    ./src/app/(marketing)/page.tsx [Client Component Browser]
+    ./src/app/(marketing)/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/(marketing)/landing/components/FeaturesSection.tsx [Client Component SSR]
+    ./src/app/(marketing)/page.tsx [Client Component SSR]
+    ./src/app/(marketing)/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./src/app/(marketing)/landing/components/FeaturesSection.tsx:5:1
+Module not found: Can't resolve '../../../../public/coin/Image (3).png'
+[0m [90m 3 |[39m [36mimport[39m usdt [36mfrom[39m [32m"../../../../public/coin/Image.png"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m usdc [36mfrom[39m [32m"../../../../public/coin/Image (1).png"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 5 |[39m [36mimport[39m wbtc [36mfrom[39m [32m"../../../../public/coin/Image (3).png"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 6 |[39m [36mimport[39m strk [36mfrom[39m [32m"../../../../public/coin/Image (2).png"[39m[33m;[39m
+ [90m 7 |[39m [36mimport[39m eth [36mfrom[39m [32m"../../../../public/coin/Image (4).png"[39m[33m;[39m
+ [90m 8 |[39m [36mimport[39m [33mImage[39m [36mfrom[39m [32m"next/image"[39m[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/(marketing)/landing/components/FeaturesSection.tsx [Client Component Browser]
+    ./src/app/(marketing)/page.tsx [Client Component Browser]
+    ./src/app/(marketing)/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/(marketing)/landing/components/FeaturesSection.tsx [Client Component SSR]
+    ./src/app/(marketing)/page.tsx [Client Component SSR]
+    ./src/app/(marketing)/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./src/app/(marketing)/landing/components/FeaturesSection.tsx:7:1
+Module not found: Can't resolve '../../../../public/coin/Image (4).png'
+[0m [90m  5 |[39m [36mimport[39m wbtc [36mfrom[39m [32m"../../../../public/coin/Image (3).png"[39m[33m;[39m
+ [90m  6 |[39m [36mimport[39m strk [36mfrom[39m [32m"../../../../public/coin/Image (2).png"[39m[33m;[39m
+[31m[1m>[22m[39m[90m  7 |[39m [36mimport[39m eth [36mfrom[39m [32m"../../../../public/coin/Image (4).png"[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m  8 |[39m [36mimport[39m [33mImage[39m [36mfrom[39m [32m"next/image"[39m[33m;[39m
+ [90m  9 |[39m [36mimport[39m { motion } [36mfrom[39m [32m"framer-motion"[39m[33m;[39m
+ [90m 10 |[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/(marketing)/landing/components/FeaturesSection.tsx [Client Component Browser]
+    ./src/app/(marketing)/page.tsx [Client Component Browser]
+    ./src/app/(marketing)/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/(marketing)/landing/components/FeaturesSection.tsx [Client Component SSR]
+    ./src/app/(marketing)/page.tsx [Client Component SSR]
+    ./src/app/(marketing)/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./src/app/(marketing)/landing/components/FaqSection.tsx:5:1
+Module not found: Can't resolve '../../../../public/coin/Image (5).png'
+[0m [90m 3 |[39m [36mimport[39m [33mReact[39m[33m,[39m { useState } [36mfrom[39m [32m"react"[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m { [33mPlus[39m } [36mfrom[39m [32m"lucide-react"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 5 |[39m [36mimport[39m typhoon [36mfrom[39m [32m"../../../../public/coin/Image (5).png"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 6 |[39m [36mimport[39m stellar [36mfrom[39m [32m"../../../../public/stellar.jpeg"[39m[33m;[39m
+ [90m 7 |[39m [36mimport[39m [33mImage[39m [36mfrom[39m [32m"next/image"[39m[33m;[39m
+ [90m 8 |[39m [36mimport[39m { motion[33m,[39m [33mAnimatePresence[39m } [36mfrom[39m [32m"framer-motion"[39m[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/(marketing)/landing/components/FaqSection.tsx [Client Component Browser]
+    ./src/app/(marketing)/page.tsx [Client Component Browser]
+    ./src/app/(marketing)/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/(marketing)/landing/components/FaqSection.tsx [Client Component SSR]
+    ./src/app/(marketing)/page.tsx [Client Component SSR]
+    ./src/app/(marketing)/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./src/app/(marketing)/landing/components/FeaturesSection.tsx:3:1
+Module not found: Can't resolve '../../../../public/coin/Image.png'
+[0m [90m 1 |[39m [32m"use client"[39m[33m;[39m
+ [90m 2 |[39m
+[31m[1m>[22m[39m[90m 3 |[39m [36mimport[39m usdt [36mfrom[39m [32m"../../../../public/coin/Image.png"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 4 |[39m [36mimport[39m usdc [36mfrom[39m [32m"../../../../public/coin/Image (1).png"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m wbtc [36mfrom[39m [32m"../../../../public/coin/Image (3).png"[39m[33m;[39m
+ [90m 6 |[39m [36mimport[39m strk [36mfrom[39m [32m"../../../../public/coin/Image (2).png"[39m[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/(marketing)/landing/components/FeaturesSection.tsx [Client Component Browser]
+    ./src/app/(marketing)/page.tsx [Client Component Browser]
+    ./src/app/(marketing)/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/(marketing)/landing/components/FeaturesSection.tsx [Client Component SSR]
+    ./src/app/(marketing)/page.tsx [Client Component SSR]
+    ./src/app/(marketing)/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./src/app/(marketing)/landing/components/Footer.tsx:7:1
+Module not found: Can't resolve '../../../../public/navLogo.svg'
+[0m [90m  5 |[39m [36mimport[39m coins [36mfrom[39m [32m"../../../../public/coin/Container (1).png"[39m[33m;[39m
+ [90m  6 |[39m [36mimport[39m [33mImage[39m [36mfrom[39m [32m"next/image"[39m[33m;[39m
+[31m[1m>[22m[39m[90m  7 |[39m [36mimport[39m logo [36mfrom[39m [32m"../../../../public/navLogo.svg"[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m  8 |[39m [36mimport[39m [33mTg[39m [36mfrom[39m [32m"@/components/icons/tg"[39m[33m;[39m
+ [90m  9 |[39m [36mimport[39m [33mX[39m [36mfrom[39m [32m"@/components/icons/x"[39m[33m;[39m
+ [90m 10 |[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/(marketing)/landing/components/Footer.tsx [Client Component Browser]
+    ./src/app/(marketing)/page.tsx [Client Component Browser]
+    ./src/app/(marketing)/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/(marketing)/landing/components/Footer.tsx [Client Component SSR]
+    ./src/app/(marketing)/page.tsx [Client Component SSR]
+    ./src/app/(marketing)/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./src/app/(marketing)/landing/components/FaqSection.tsx:6:1
+Module not found: Can't resolve '../../../../public/stellar.jpeg'
+[0m [90m 4 |[39m [36mimport[39m { [33mPlus[39m } [36mfrom[39m [32m"lucide-react"[39m[33m;[39m
+ [90m 5 |[39m [36mimport[39m typhoon [36mfrom[39m [32m"../../../../public/coin/Image (5).png"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 6 |[39m [36mimport[39m stellar [36mfrom[39m [32m"../../../../public/stellar.jpeg"[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 7 |[39m [36mimport[39m [33mImage[39m [36mfrom[39m [32m"next/image"[39m[33m;[39m
+ [90m 8 |[39m [36mimport[39m { motion[33m,[39m [33mAnimatePresence[39m } [36mfrom[39m [32m"framer-motion"[39m[33m;[39m
+ [90m 9 |[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/(marketing)/landing/components/FaqSection.tsx [Client Component Browser]
+    ./src/app/(marketing)/page.tsx [Client Component Browser]
+    ./src/app/(marketing)/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/(marketing)/landing/components/FaqSection.tsx [Client Component SSR]
+    ./src/app/(marketing)/page.tsx [Client Component SSR]
+    ./src/app/(marketing)/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+    at <unknown> (./src/app/(marketing)/landing/components/TestimonialsSection.tsx:3:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./src/app/(marketing)/landing/components/Footer.tsx:5:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./src/app/(marketing)/landing/components/FeaturesSection.tsx:4:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./src/app/(marketing)/landing/components/FeaturesSection.tsx:6:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./src/app/(marketing)/landing/components/FeaturesSection.tsx:5:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./src/app/(marketing)/landing/components/FeaturesSection.tsx:7:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./src/app/(marketing)/landing/components/FaqSection.tsx:5:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./src/app/(marketing)/landing/components/FeaturesSection.tsx:3:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./src/app/(marketing)/landing/components/Footer.tsx:7:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (./src/app/(marketing)/landing/components/FaqSection.tsx:6:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+ ELIFECYCLE  Command failed with exit code 1.
