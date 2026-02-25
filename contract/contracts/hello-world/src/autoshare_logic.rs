@@ -1,8 +1,8 @@
 use crate::base::errors::Error;
 use crate::base::events::{
-    AdminTransferred, AutoshareCreated, AutoshareUpdated, ContractPaused, ContractUnpaused,
-    Distribution, FundraisingStarted, GroupActivated, GroupDeactivated, GroupDeleted,
-    GroupNameUpdated, Withdrawal, emit_distribution, emit_contribution,
+    emit_contribution, emit_distribution, AdminTransferred, AutoshareCreated, AutoshareUpdated,
+    ContractPaused, ContractUnpaused, Distribution, FundraisingStarted, GroupActivated,
+    GroupDeactivated, GroupDeleted, GroupNameUpdated, Withdrawal,
 };
 use crate::base::types::{
     AutoShareDetails, DistributionHistory, FundraisingConfig, FundraisingContribution, GroupMember,
@@ -1233,10 +1233,7 @@ pub fn distribute(
 
     let client = token::TokenClient::new(&env, &token);
     client.transfer(&sender, &env.current_contract_address(), &amount);
-
-
     let member_amounts = perform_distribution(&env, &id, &token, amount, &details.members);
-
     let distribution_number = details.total_usages_paid - details.usage_count;
     record_distribution(
         env.clone(),
@@ -1247,7 +1244,6 @@ pub fn distribute(
         member_amounts.clone(),
         distribution_number,
     );
-
     // Emit new distribution event for fund flow tracking
     emit_distribution(
         &env,
@@ -1561,16 +1557,8 @@ pub fn contribute(
     stats.contribution_count += 1;
     env.storage().persistent().set(&stats_key, &stats);
     bump_persistent(&env, &stats_key);
-
-
     // Emit new contribution event for fundraising tracking
-    emit_contribution(
-        &env,
-        &id,
-        &contributor,
-        &token,
-        amount,
-    );
+    emit_contribution(&env, &id, &contributor, &token, amount);
 
     Ok(())
 }
