@@ -83,7 +83,7 @@ pub struct Withdrawal {
 }
 
 // -------------------
-// Payment Flow Events (to be extended)
+// Payment Flow Events
 // -------------------
 
 #[contractevent(data_format = "single-value")]
@@ -96,6 +96,21 @@ pub struct Distribution {
     #[topic]
     pub sender: Address,
     pub amount: i128,
+}
+
+/// Emitted when funds are distributed to group members.
+pub fn emit_distribution(
+    env: &soroban_sdk::Env,
+    group_id: &BytesN<32>,
+    sender: &Address,
+    token: &Address,
+    total_amount: i128,
+    member_count: u32,
+) {
+    env.events().publish(
+        ("distribution", group_id, sender, token),
+        (total_amount, member_count),
+    );
 }
 
 
