@@ -142,4 +142,18 @@ pub struct Contribution {
     pub amount: i128,
 }
 
+/// Emitted when someone contributes to a fundraiser.
+pub fn emit_contribution(
+    env: &soroban_sdk::Env,
+    group_id: &BytesN<32>,
+    contributor: &Address,
+    token: &Address,
+    amount: i128,
+) {
+    env.events().publish(
+        ("contribution", group_id, contributor, token),
+        amount,
+    );
+}
+
 // --- End of events.rs ---
