@@ -2,7 +2,7 @@ use crate::base::errors::Error;
 use crate::base::events::{
     AdminTransferred, AutoshareCreated, AutoshareUpdated, ContractPaused, ContractUnpaused,
     Distribution, FundraisingStarted, GroupActivated, GroupDeactivated, GroupDeleted,
-    GroupNameUpdated, Withdrawal,
+    GroupNameUpdated, Withdrawal, emit_distribution,
 };
 use crate::base::types::{
     AutoShareDetails, DistributionHistory, FundraisingConfig, FundraisingContribution, GroupMember,
@@ -1234,6 +1234,7 @@ pub fn distribute(
     let client = token::TokenClient::new(&env, &token);
     client.transfer(&sender, &env.current_contract_address(), &amount);
 
+
     let member_amounts = perform_distribution(&env, &id, &token, amount, &details.members);
 
     let distribution_number = details.total_usages_paid - details.usage_count;
@@ -1243,8 +1244,18 @@ pub fn distribute(
         sender.clone(),
         amount,
         token.clone(),
-        member_amounts,
+        member_amounts.clone(),
         distribution_number,
+    );
+
+    // Emit new distribution event for fund flow tracking
+    emit_distribution(
+        &env,
+        &id,
+        &sender,
+        &token,
+        amount,
+        member_amounts.len() as u32,
     );
 
     details.usage_count -= 1;
