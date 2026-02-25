@@ -1,4 +1,9 @@
+// Events for group lifecycle, admin, and payment flows
 use soroban_sdk::{contractevent, Address, BytesN};
+
+// -------------------
+// Group Lifecycle Events
+// -------------------
 
 #[contractevent(data_format = "single-value")]
 #[derive(Clone)]
@@ -8,13 +13,16 @@ pub struct AutoshareCreated {
     pub id: BytesN<32>,
 }
 
+
 #[contractevent]
 #[derive(Clone)]
 pub struct ContractPaused {}
 
+
 #[contractevent]
 #[derive(Clone)]
 pub struct ContractUnpaused {}
+
 
 #[contractevent(data_format = "single-value")]
 #[derive(Clone)]
@@ -24,6 +32,7 @@ pub struct AutoshareUpdated {
     pub id: BytesN<32>,
 }
 
+
 #[contractevent(data_format = "single-value")]
 #[derive(Clone)]
 pub struct GroupDeactivated {
@@ -31,6 +40,7 @@ pub struct GroupDeactivated {
     pub creator: Address,
     pub id: BytesN<32>,
 }
+
 
 #[contractevent(data_format = "single-value")]
 #[derive(Clone)]
@@ -40,6 +50,7 @@ pub struct GroupActivated {
     pub id: BytesN<32>,
 }
 
+
 #[contractevent(data_format = "single-value")]
 #[derive(Clone)]
 pub struct GroupDeleted {
@@ -48,6 +59,10 @@ pub struct GroupDeleted {
     pub id: BytesN<32>,
 }
 
+// -------------------
+// Admin Events
+// -------------------
+
 #[contractevent(data_format = "single-value")]
 #[derive(Clone)]
 pub struct AdminTransferred {
@@ -55,6 +70,7 @@ pub struct AdminTransferred {
     pub old_admin: Address,
     pub new_admin: Address,
 }
+
 
 #[contractevent(data_format = "single-value")]
 #[derive(Clone)]
@@ -65,6 +81,10 @@ pub struct Withdrawal {
     pub recipient: Address,
     pub amount: i128,
 }
+
+// -------------------
+// Payment Flow Events (to be extended)
+// -------------------
 
 #[contractevent(data_format = "single-value")]
 #[derive(Clone)]
@@ -78,6 +98,7 @@ pub struct Distribution {
     pub amount: i128,
 }
 
+
 #[contractevent(data_format = "single-value")]
 #[derive(Clone)]
 pub struct GroupNameUpdated {
@@ -85,6 +106,7 @@ pub struct GroupNameUpdated {
     pub updater: Address,
     pub id: BytesN<32>,
 }
+
 #[contractevent(data_format = "single-value")]
 #[derive(Clone)]
 pub struct FundraisingStarted {
@@ -92,6 +114,7 @@ pub struct FundraisingStarted {
     pub group_id: BytesN<32>,
     pub target_amount: i128,
 }
+
 
 #[contractevent]
 #[derive(Clone)]
@@ -103,3 +126,5 @@ pub struct Contribution {
     pub token: Address,
     pub amount: i128,
 }
+
+// --- End of events.rs ---
