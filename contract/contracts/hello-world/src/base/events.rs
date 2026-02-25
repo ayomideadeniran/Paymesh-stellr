@@ -1,3 +1,31 @@
+/// Emitted when funds are distributed to group members.
+pub fn emit_distribution(
+    env: &soroban_sdk::Env,
+    group_id: &BytesN<32>,
+    sender: &Address,
+    token: &Address,
+    total_amount: i128,
+    member_count: u32,
+) {
+    env.events().publish(
+        ("distribution", group_id, sender, token),
+        (total_amount, member_count),
+    );
+}
+
+/// Emitted when someone contributes to a fundraiser.
+pub fn emit_contribution(
+    env: &soroban_sdk::Env,
+    group_id: &BytesN<32>,
+    contributor: &Address,
+    token: &Address,
+    amount: i128,
+) {
+    env.events().publish(
+        ("contribution", group_id, contributor, token),
+        amount,
+    );
+}
 use soroban_sdk::{contractevent, Address, BytesN};
 
 #[contractevent(data_format = "single-value")]
