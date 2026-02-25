@@ -1,9 +1,10 @@
 use crate::base::errors::Error;
 use crate::base::events::{
     emit_contribution, emit_distribution, AdminTransferred, AutoshareCreated, AutoshareUpdated,
-    ContractPaused, ContractUnpaused, Distribution, FundraisingStarted, GroupActivated,
-    GroupDeactivated, GroupDeleted, GroupNameUpdated, Withdrawal,
+    ContractPaused, ContractUnpaused, FundraisingStarted, GroupActivated, GroupDeactivated,
+    GroupDeleted, GroupNameUpdated, Withdrawal,
 };
+
 use crate::base::types::{
     AutoShareDetails, DistributionHistory, FundraisingConfig, FundraisingContribution, GroupMember,
     GroupStats, MemberAmount, PaymentHistory,
@@ -1257,14 +1258,6 @@ pub fn distribute(
     details.usage_count -= 1;
     env.storage().persistent().set(&key, &details);
     bump_persistent(&env, &key);
-
-    Distribution {
-        id,
-        token,
-        sender,
-        amount,
-    }
-    .publish(&env);
 
     Ok(())
 }
