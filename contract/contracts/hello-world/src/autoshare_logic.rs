@@ -2,7 +2,7 @@ use crate::base::errors::Error;
 use crate::base::events::{
     AdminTransferred, AutoshareCreated, AutoshareUpdated, ContractPaused, ContractUnpaused,
     Distribution, FundraisingStarted, GroupActivated, GroupDeactivated, GroupDeleted,
-    GroupNameUpdated, Withdrawal, emit_distribution,
+    GroupNameUpdated, Withdrawal, emit_distribution, emit_contribution,
 };
 use crate::base::types::{
     AutoShareDetails, DistributionHistory, FundraisingConfig, FundraisingContribution, GroupMember,
@@ -1562,14 +1562,15 @@ pub fn contribute(
     env.storage().persistent().set(&stats_key, &stats);
     bump_persistent(&env, &stats_key);
 
-    // Emit event
-    crate::base::events::Contribution {
-        group_id: id,
-        contributor,
-        token,
+
+    // Emit new contribution event for fundraising tracking
+    emit_contribution(
+        &env,
+        &id,
+        &contributor,
+        &token,
         amount,
-    }
-    .publish(&env);
+    );
 
     Ok(())
 }
