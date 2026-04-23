@@ -821,10 +821,12 @@ pub fn remove_group_member(
     }
 
     let mut found = false;
+    let mut removed_percentage: u32 = 0;
     let mut new_members: Vec<GroupMember> = Vec::new(&env);
     for member in details.members.iter() {
         if member.address == member_address {
             found = true;
+            removed_percentage = member.percentage;
         } else {
             new_members.push_back(member.clone());
         }
@@ -862,14 +864,21 @@ pub fn remove_group_member(
         bump_persistent(&env, &member_groups_key);
     }
 
+    let pending_earnings = get_member_earnings(env.clone(), member_address.clone(), id.clone());
+
     AutoshareUpdated {
         id: id.clone(),
         updater: caller,
     }
     .publish(&env);
 
-    // Emit MemberRemoved event for indexers
-    emit_member_removed(&env, id.clone(), member_address.clone());
+    emit_member_removed(
+        &env,
+        id.clone(),
+        member_address.clone(),
+        removed_percentage,
+        pending_earnings,
+    );
 
     Ok(())
 }
