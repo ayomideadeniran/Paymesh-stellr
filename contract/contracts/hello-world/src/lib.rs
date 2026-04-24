@@ -229,6 +229,16 @@ impl AutoShareContract {
         autoshare_logic::is_group_member(env, id, address).unwrap()
     }
 
+    /// Returns all members of a group.
+    ///
+    /// ### Arguments
+    /// * `id` - The unique 32-byte identifier of the AutoShare group.
+    ///
+    /// ### Returns
+    /// * `Vec<base::types::GroupMember>` - A vector containing all group members and their percentages.
+    ///
+    /// ### Panics
+    /// * Panics with `Error::NotFound` if the group does not exist.
     pub fn get_group_members(env: Env, id: BytesN<32>) -> Vec<base::types::GroupMember> {
         autoshare_logic::get_group_members(env, id).unwrap()
     }
@@ -776,6 +786,10 @@ pub mod test_utils;
 #[cfg(test)]
 #[path = "tests/get_groups_by_member_test.rs"]
 mod get_groups_by_member_test;
+
+#[cfg(test)]
+#[path = "tests/get_group_members_test.rs"]
+mod get_group_members_test;
 
 #[cfg(test)]
 #[path = "tests/test_utils_test.rs"]

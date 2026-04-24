@@ -524,6 +524,17 @@ pub fn is_group_member(env: Env, id: BytesN<32>, address: Address) -> Result<boo
     Ok(false)
 }
 
+/// Returns all members of a group.
+///
+/// ### Arguments
+/// * `id` - The unique 32-byte identifier of the AutoShare group.
+///
+/// ### Returns
+/// * `Result<Vec<GroupMember>, Error>` - A vector containing all group members and their percentages, 
+///   or an error if the group is not found.
+///
+/// ### Panics
+/// * This function does not panic but returns `Error::NotFound` if the group ID is invalid.
 pub fn get_group_members(env: Env, id: BytesN<32>) -> Result<Vec<GroupMember>, Error> {
     let details = get_autoshare(env.clone(), id.clone())?;
     let members = details.members;
