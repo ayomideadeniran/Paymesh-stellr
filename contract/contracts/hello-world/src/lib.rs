@@ -471,22 +471,6 @@ impl AutoShareContract {
         autoshare_logic::get_usage_fee(env)
     }
 
-    /// Sets the protocol fee percentage (0–100). Pass `group_id = None` for the global
-    /// default, or `Some(id)` to set a group-specific override. Admin only.
-    pub fn set_protocol_fee(
-        env: Env,
-        admin: Address,
-        fee_percent: u32,
-        group_id: Option<BytesN<32>>,
-    ) {
-        autoshare_logic::set_protocol_fee(env, admin, fee_percent, group_id).unwrap();
-    }
-
-    /// Returns the effective protocol fee percentage for a group (or the global default).
-    pub fn get_protocol_fee(env: Env, group_id: Option<BytesN<32>>) -> u32 {
-        autoshare_logic::get_protocol_fee(env, group_id)
-    }
-
     /// Sets the maximum number of members per group (admin only).
     pub fn set_max_members(env: Env, admin: Address, max: u32) {
         autoshare_logic::set_max_members(env, admin, max).unwrap();
@@ -495,16 +479,6 @@ impl AutoShareContract {
     /// Returns the current maximum number of members per group.
     pub fn get_max_members(env: Env) -> u32 {
         autoshare_logic::get_max_members(&env)
-    }
-
-    /// Sets the protocol fee percentage (admin only).
-    pub fn set_protocol_fee(env: Env, admin: Address, percentage: u32) {
-        autoshare_logic::set_protocol_fee(env, admin, percentage).unwrap();
-    }
-
-    /// Returns the current global protocol fee percentage.
-    pub fn get_protocol_fee(env: Env) -> u32 {
-        autoshare_logic::get_protocol_fee(env)
     }
 
     /// Sets the group-specific protocol fee percentage (admin only).
@@ -797,6 +771,78 @@ impl AutoShareContract {
     pub fn set_protocol_fee(env: Env, fee: u32, recipient: Address, admin: Address) {
         autoshare_logic::set_protocol_fee(env, fee, recipient, admin).unwrap();
     }
+
+    // ============================================================================
+    // Deposit Funds (Issue #299)
+    // ============================================================================
+
+    /// Deposits funds into a group's treasury for future distributions.
+    ///
+    /// This function allows any user to deposit supported tokens into an active group's
+    /// treasury. The deposited amount is transferred from the depositor to the contract
+    /// and tracked for analytics and history purposes.
+    ///
+    /// # Arguments
+    ///
+    /// * `env` - The Soroban environment
+    /// * `id` - The unique identifier of the AutoShare group
+    /// * `token` - The token address being deposited
+    /// * `amount` - The amount to deposit (must be > 0)
+    /// * `depositor` - The address of the depositor (must authorize)
+    ///
+    /// # Events
+    ///
+    /// Emits `FundsDeposited` event with group_id, depositor, token, amount, and new treasury balance.
+    ///
+    /// # Panics
+    ///
+    /// Panics if validation fails or token transfer fails.
+    pub fn deposit_funds(env: Env, id: BytesN<32>, token: Address, amount: i128, depositor: Address) {
+        autoshare_logic::deposit_funds(env, id, token, amount, depositor).unwrap();
+    }
+
+    /// Returns the treasury balance for a specific group and token.
+    ///
+    /// # Arguments
+    ///
+    /// * `env` - The Soroban environment
+    /// * `id` - The unique identifier of the AutoShare group
+    /// * `token` - The token address to check balance for
+    ///
+    /// # Returns
+    ///
+    /// Returns the current treasury balance (0 if no deposits have been made).
+    pub fn get_group_treasury_balance(env: Env, id: BytesN<32>, token: Address) -> i128 {
+        autoshare_logic::get_group_treasury_balance(env, id, token)
+    }
+
+    /// Returns all deposit history records for a specific group.
+    ///
+    /// # Arguments
+    ///
+    /// * `env` - The Soroban environment
+    /// * `id` - The unique identifier of the AutoShare group
+    ///
+    /// # Returns
+    ///
+    /// Returns a vector of all deposit records for the group (empty if no deposits).
+    pub fn get_group_deposit_history(env: Env, id: BytesN<32>) -> Vec<base::types::DepositRecord> {
+        autoshare_logic::get_group_deposit_history(env, id)
+    }
+
+    /// Returns all deposit history records for a specific depositor across all groups.
+    ///
+    /// # Arguments
+    ///
+    /// * `env` - The Soroban environment
+    /// * `depositor` - The address of the depositor
+    ///
+    /// # Returns
+    ///
+    /// Returns a vector of all deposit records by the depositor (empty if no deposits).
+    pub fn get_depositor_history(env: Env, depositor: Address) -> Vec<base::types::DepositRecord> {
+        autoshare_logic::get_depositor_history(env, depositor)
+    }
 }
 
 // 3. Link the tests (Requirement: Unit Tests)
@@ -983,3 +1029,7 @@ mod get_group_members_boundary_test;
 #[cfg(test)]
 #[path = "tests/protocol_fee_boundary_test.rs"]
 mod protocol_fee_boundary_test;
+
+#[cfg(test)]
+#[path = "tests/deposit_funds_test.rs"]
+mod deposit_funds_test;
