@@ -41,13 +41,7 @@ fn test_create_payment_group_whitespace_only_name_fails() {
     let id = BytesN::from_array(env, &[211u8; 32]);
 
     fund_user_with_tokens(env, &token, &creator, 5_000);
-    client.create_payment_group(
-        &id,
-        &String::from_str(env, "   \t\n"),
-        &creator,
-        &1,
-        &token,
-    );
+    client.create_payment_group(&id, &String::from_str(env, "   \t\n"), &creator, &1, &token);
 }
 
 #[test]

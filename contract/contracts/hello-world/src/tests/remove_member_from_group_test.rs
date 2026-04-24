@@ -25,7 +25,14 @@ fn test_remove_member_from_group_success_updates_member_list() {
         percentage: 45,
     });
 
-    let id = create_test_group(env, &test_env.autoshare_contract, &creator, &members, 2, &token);
+    let id = create_test_group(
+        env,
+        &test_env.autoshare_contract,
+        &creator,
+        &members,
+        2,
+        &token,
+    );
     assert_eq!(client.get_group_members(&id).len(), 2);
 
     client.remove_member_from_group(&id, &creator, &m2);
@@ -57,7 +64,14 @@ fn test_remove_member_from_group_non_creator_fails() {
         percentage: 50,
     });
 
-    let id = create_test_group(env, &test_env.autoshare_contract, &creator, &members, 1, &token);
+    let id = create_test_group(
+        env,
+        &test_env.autoshare_contract,
+        &creator,
+        &members,
+        1,
+        &token,
+    );
     let attacker = Address::generate(env);
     client.remove_member_from_group(&id, &attacker, &m2);
 }
@@ -78,7 +92,14 @@ fn test_remove_member_from_group_unknown_member_fails() {
         percentage: 100,
     });
 
-    let id = create_test_group(env, &test_env.autoshare_contract, &creator, &members, 1, &token);
+    let id = create_test_group(
+        env,
+        &test_env.autoshare_contract,
+        &creator,
+        &members,
+        1,
+        &token,
+    );
     let ghost = Address::generate(env);
     client.remove_member_from_group(&id, &creator, &ghost);
 }
@@ -104,7 +125,14 @@ fn test_remove_member_from_group_inactive_group_fails() {
         percentage: 50,
     });
 
-    let id = create_test_group(env, &test_env.autoshare_contract, &creator, &members, 1, &token);
+    let id = create_test_group(
+        env,
+        &test_env.autoshare_contract,
+        &creator,
+        &members,
+        1,
+        &token,
+    );
     client.deactivate_group(&id, &creator);
     client.remove_member_from_group(&id, &creator, &m2);
 }
@@ -130,7 +158,14 @@ fn test_remove_member_from_group_after_distribution_succeeds() {
     });
 
     let usages = 3u32;
-    let id = create_test_group(env, &test_env.autoshare_contract, &creator, &members, usages, &token);
+    let id = create_test_group(
+        env,
+        &test_env.autoshare_contract,
+        &creator,
+        &members,
+        usages,
+        &token,
+    );
 
     let sender = test_env.users.get(1).unwrap().clone();
     mint_tokens(env, &token, &sender, 2_000);

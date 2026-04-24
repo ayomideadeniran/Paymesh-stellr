@@ -72,6 +72,32 @@ pub struct GroupDeactivated {
     pub id: BytesN<32>,
 }
 
+#[contractevent]
+#[derive(Clone)]
+pub struct PaymentGroupDeactivated {
+    #[topic]
+    pub id: BytesN<32>,
+    #[topic]
+    pub caller: Address,
+    pub member_count: u32,
+    pub timestamp: u64,
+}
+
+pub fn emit_payment_group_deactivated(
+    env: &Env,
+    id: BytesN<32>,
+    caller: Address,
+    member_count: u32,
+) {
+    PaymentGroupDeactivated {
+        id,
+        caller,
+        member_count,
+        timestamp: env.ledger().timestamp(),
+    }
+    .publish(env);
+}
+
 #[contractevent(data_format = "single-value")]
 #[derive(Clone)]
 pub struct GroupActivated {

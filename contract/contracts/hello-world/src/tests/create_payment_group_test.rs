@@ -81,20 +81,8 @@ fn test_create_payment_group_duplicate_id_fails() {
     let id = BytesN::from_array(env, &[203u8; 32]);
 
     fund_user_with_tokens(env, &token, &creator, 30_000);
-    client.create_payment_group(
-        &id,
-        &String::from_str(env, "First"),
-        &creator,
-        &2,
-        &token,
-    );
-    client.create_payment_group(
-        &id,
-        &String::from_str(env, "Second"),
-        &creator,
-        &2,
-        &token,
-    );
+    client.create_payment_group(&id, &String::from_str(env, "First"), &creator, &2, &token);
+    client.create_payment_group(&id, &String::from_str(env, "Second"), &creator, &2, &token);
 }
 
 #[test]

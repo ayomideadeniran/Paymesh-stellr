@@ -2,9 +2,9 @@ use crate::base::errors::Error;
 use crate::base::events::{
     emit_contribution, emit_creator_is_member, emit_distribution, emit_fundraising_cancelled,
     emit_fundraising_target_updated, emit_max_members_updated, emit_member_removed,
-    emit_usage_fee_updated, AdminTransferred, AutoshareCreated, AutoshareUpdated, ContractPaused,
-    ContractUnpaused, FundraisingStarted, GroupActivated, GroupDeactivated, GroupDeleted,
-    GroupNameUpdated, GroupOwnershipTransferred, Withdrawal,
+    emit_payment_group_deactivated, emit_usage_fee_updated, AdminTransferred, AutoshareCreated,
+    AutoshareUpdated, ContractPaused, ContractUnpaused, FundraisingStarted, GroupActivated,
+    GroupDeactivated, GroupDeleted, GroupNameUpdated, GroupOwnershipTransferred, Withdrawal,
 };
 
 use crate::base::types::{
@@ -1777,9 +1777,37 @@ pub fn deactivate_group(env: Env, id: BytesN<32>, caller: Address) -> Result<(),
 }
 
 /// Deactivates a payment group so it can no longer accept new distributions or member changes.
-/// This is a protocol-level alias of `deactivate_group` to keep storage, auth, and events aligned.
+/// Emits a dedicated `PaymentGroupDeactivated` event with indexed group id and caller for off-chain indexing.
 pub fn deactivate_payment_group(env: Env, id: BytesN<32>, caller: Address) -> Result<(), Error> {
-    deactivate_group(env, id, caller)
+    caller.require_auth();
+
+    if get_paused_status(&env) {
+        return Err(Error::ContractPaused);
+    }
+
+    let key = DataKey::AutoShare(id.clone());
+    let mut details: AutoShareDetails = env
+        .storage()
+        .persistent()
+        .get(&key)
+        .ok_or(Error::NotFound)?;
+    bump_persistent(&env, &key);
+
+    if details.creator != caller {
+        return Err(Error::Unauthorized);
+    }
+
+    if !details.is_active {
+        return Err(Error::GroupAlreadyInactive);
+    }
+
+    let member_count = details.members.len();
+    details.is_active = false;
+    env.storage().persistent().set(&key, &details);
+    bump_persistent(&env, &key);
+
+    emit_payment_group_deactivated(&env, id, caller, member_count);
+    Ok(())
 }
 
 pub fn activate_group(env: Env, id: BytesN<32>, caller: Address) -> Result<(), Error> {
